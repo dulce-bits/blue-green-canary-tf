@@ -85,11 +85,11 @@ variable "green_instance_count" {
 variable "blue_traffic" {
   description = "Level of traffic distribution to blue environment"
   type        = number
-  default     = 90
+  default     = 50
 }
 
 variable "green_traffic" {
   description = "Level of traffic distribution to green environment"
   type        = number
-  default     = 10
+  default     = 50
 }
