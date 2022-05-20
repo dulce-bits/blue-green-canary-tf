@@ -84,21 +84,19 @@ We can continue with this process of increasing the traffic to the new version u
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 0.14 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.20.0 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | 3.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 4.14.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.0.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_app_security_group"></a> [app\_security\_group](#module\_app\_security\_group) | terraform-aws-modules/security-group/aws//modules/web | 3.17.0 |
-| <a name="module_lb_security_group"></a> [lb\_security\_group](#module\_lb\_security\_group) | terraform-aws-modules/security-group/aws//modules/web | 3.17.0 |
+| <a name="module_app_sg"></a> [app\_sg](#module\_app\_sg) | terraform-aws-modules/security-group/aws//modules/web | 3.17.0 |
+| <a name="module_lb_sg"></a> [lb\_sg](#module\_lb\_sg) | terraform-aws-modules/security-group/aws//modules/web | 3.17.0 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | 2.64.0 |
 
 ## Resources
@@ -106,14 +104,10 @@ We can continue with this process of increasing the traffic to the new version u
 | Name | Type |
 |------|------|
 | [aws_instance.blue](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
-| [aws_instance.green](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance) | resource |
 | [aws_lb.app](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
 | [aws_lb_listener.app](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
 | [aws_lb_target_group.blue](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group) | resource |
-| [aws_lb_target_group.green](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group) | resource |
 | [aws_lb_target_group_attachment.blue](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group_attachment) | resource |
-| [aws_lb_target_group_attachment.green](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_target_group_attachment) | resource |
-| [random_pet.app](https://registry.terraform.io/providers/hashicorp/random/3.0.0/docs/resources/pet) | resource |
 | [aws_ami.amazon_linux](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
 | [aws_availability_zones.available](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) | data source |
 
@@ -122,12 +116,12 @@ We can continue with this process of increasing the traffic to the new version u
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_blue_instance_count"></a> [blue\_instance\_count](#input\_blue\_instance\_count) | Number of instances in blue environment | `number` | `2` | no |
-| <a name="input_blue_traffic"></a> [blue\_traffic](#input\_blue\_traffic) | Level of traffic distribution to blue environment | `number` | `50` | no |
+| <a name="input_blue_traffic"></a> [blue\_traffic](#input\_blue\_traffic) | Level of traffic distribution to blue environment | `number` | `100` | no |
 | <a name="input_enable_blue_env"></a> [enable\_blue\_env](#input\_enable\_blue\_env) | Enable blue environment | `bool` | `true` | no |
-| <a name="input_enable_green_env"></a> [enable\_green\_env](#input\_enable\_green\_env) | Enable green environment | `bool` | `true` | no |
+| <a name="input_enable_green_env"></a> [enable\_green\_env](#input\_enable\_green\_env) | Enable green environment | `bool` | `false` | no |
 | <a name="input_enable_vpn_gateway"></a> [enable\_vpn\_gateway](#input\_enable\_vpn\_gateway) | Enable a VPN gateway in your VPC. | `bool` | `false` | no |
 | <a name="input_green_instance_count"></a> [green\_instance\_count](#input\_green\_instance\_count) | Number of instances in green environment | `number` | `2` | no |
-| <a name="input_green_traffic"></a> [green\_traffic](#input\_green\_traffic) | Level of traffic distribution to green environment | `number` | `50` | no |
+| <a name="input_green_traffic"></a> [green\_traffic](#input\_green\_traffic) | Level of traffic distribution to green environment | `number` | `0` | no |
 | <a name="input_private_subnet_cidr_blocks"></a> [private\_subnet\_cidr\_blocks](#input\_private\_subnet\_cidr\_blocks) | Available cidr blocks for private subnets | `list(string)` | <pre>[<br>  "10.0.101.0/24",<br>  "10.0.102.0/24",<br>  "10.0.103.0/24",<br>  "10.0.104.0/24",<br>  "10.0.105.0/24",<br>  "10.0.106.0/24",<br>  "10.0.107.0/24",<br>  "10.0.108.0/24"<br>]</pre> | no |
 | <a name="input_private_subnet_count"></a> [private\_subnet\_count](#input\_private\_subnet\_count) | Number of private subnets | `number` | `2` | no |
 | <a name="input_public_subnet_cidr_blocks"></a> [public\_subnet\_cidr\_blocks](#input\_public\_subnet\_cidr\_blocks) | Available cidr blocks for public subnets | `list(string)` | <pre>[<br>  "10.0.1.0/24",<br>  "10.0.2.0/24",<br>  "10.0.3.0/24",<br>  "10.0.4.0/24",<br>  "10.0.5.0/24",<br>  "10.0.6.0/24",<br>  "10.0.7.0/24",<br>  "10.0.8.0/24"<br>]</pre> | no |
