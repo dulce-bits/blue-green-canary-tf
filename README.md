@@ -67,8 +67,6 @@ Now that we can verify that the app is working as expected for version 1.1, we c
 
 ![alt text](images/5.png)
 
-We can continue with this process of increasing the traffic to the new version until we are sure that it is stable, then we can completely shift the traffic to the green environment and disable the blue environment until next roullout.
-
 ## Promote green env
 
 We can continue with this process of increasing the traffic to the new version until we are sure that it is stable, then we can completely shift the traffic to the green environment and disable the blue environment until next roullout.
