@@ -24,8 +24,7 @@ module "app_sg" {
   name   = "web-sg"
   vpc_id = module.vpc.vpc_id
 
-  #   ingress_cidr_blocks = module.vpc.public_subnets_cidr_blocks
-  ingress_cidr_blocks = ["0.0.0.0/0"]
+  ingress_cidr_blocks = module.vpc.public_subnets_cidr_blocks
 }
 
 module "lb_sg" {
