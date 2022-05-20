@@ -61,7 +61,7 @@ variable "private_subnet_cidr_blocks" {
 variable "enable_blue_env" {
   description = "Enable blue environment"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "blue_instance_count" {
@@ -85,11 +85,11 @@ variable "green_instance_count" {
 variable "blue_traffic" {
   description = "Level of traffic distribution to blue environment"
   type        = number
-  default     = 50
+  default     = 0
 }
 
 variable "green_traffic" {
   description = "Level of traffic distribution to green environment"
   type        = number
-  default     = 50
+  default     = 100
 }
