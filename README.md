@@ -118,7 +118,7 @@ We can continue with this process of increasing the traffic to the new version u
 | <a name="input_blue_instance_count"></a> [blue\_instance\_count](#input\_blue\_instance\_count) | Number of instances in blue environment | `number` | `2` | no |
 | <a name="input_blue_traffic"></a> [blue\_traffic](#input\_blue\_traffic) | Level of traffic distribution to blue environment | `number` | `100` | no |
 | <a name="input_enable_blue_env"></a> [enable\_blue\_env](#input\_enable\_blue\_env) | Enable blue environment | `bool` | `true` | no |
-| <a name="input_enable_green_env"></a> [enable\_green\_env](#input\_enable\_green\_env) | Enable green environment | `bool` | `false` | no |
+| <a name="input_enable_green_env"></a> [enable\_green\_env](#input\_enable\_green\_env) | Enable green environment | `bool` | `true` | no |
 | <a name="input_enable_vpn_gateway"></a> [enable\_vpn\_gateway](#input\_enable\_vpn\_gateway) | Enable a VPN gateway in your VPC. | `bool` | `false` | no |
 | <a name="input_green_instance_count"></a> [green\_instance\_count](#input\_green\_instance\_count) | Number of instances in green environment | `number` | `2` | no |
 | <a name="input_green_traffic"></a> [green\_traffic](#input\_green\_traffic) | Level of traffic distribution to green environment | `number` | `0` | no |
