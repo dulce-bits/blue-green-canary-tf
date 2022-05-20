@@ -4,7 +4,7 @@ This is a poc designed to simulate a blue-green canary deployment using Terrafor
 
 ## Initializing the infrastructure
 
-First I initialize the intra qith the command init, I used an s3 bucket as remote backend.
+First I initialize the infra with the command init, I used an s3 bucket as remote backend.
 `terraform init`
 
 ![alt text](images/1.png)
@@ -74,6 +74,8 @@ We can continue with this process of increasing the traffic to the new version u
 We can continue with this process of increasing the traffic to the new version until we are sure that it is stable, then we can completely shift the traffic to the green environment and disable the blue environment until next roullout.
 
 ![alt text](images/6.png)
+
+> You can find on the different branches of the project how I change the configuration for every step of the deployment.
 
 ## Terraform documentation
 
